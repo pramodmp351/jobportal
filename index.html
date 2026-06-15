@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stackly | Find Your Next Tech Role</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      rel="stylesheet"
-    />
 
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
     <style>
       :root {
         --brand-blue: #064e3b;
@@ -28,21 +29,10 @@
         color: var(--dark-blue);
         font-family: "Inter", sans-serif;
       }
-      .text-accent {
-        color: var(--accent-orange);
-      }
-      .bg-accent {
-        background-color: var(--accent-orange);
-      }
-      .border-accent {
-        border-color: var(--accent-orange);
-      }
-      .hero-gradient {
-        background: linear-gradient(
-          135deg,
-          var(--dark-blue) 0%,
-          var(--brand-blue) 100%
-        );
+      .slider-image {
+        transition: opacity 1s ease-in-out;
+        background-size: cover;
+        background-position: center;
       }
     </style>
   </head>
@@ -87,11 +77,34 @@
       </div>
     </header>
     <main class="flex-grow">
-      <!-- Hero Section -->
-      <section class="hero-gradient text-white py-20 px-6">
-        <div class="max-w-4xl mx-auto text-center">
+      <!-- Hero Section with Image Slider -->
+      <section
+        class="relative py-20 px-6 overflow-hidden min-h-[500px] flex items-center"
+      >
+        <div id="slider" class="absolute inset-0 z-0 bg-gray-900">
+          <div
+            class="slider-image absolute inset-0 opacity-100"
+            style="background-image: url(&quot;./images/ko (3).webp&quot;)"
+          ></div>
+          <div
+            class="slider-image absolute inset-0 opacity-0"
+            style="background-image: url(&quot;./images/AQ (2).webp&quot;)"
+          ></div>
+          <div
+            class="slider-image absolute inset-0 opacity-0"
+            style="background-image: url(&quot;./images/AQ (3).webp&quot;)"
+          ></div>
+          <div
+            class="slider-image absolute inset-0 opacity-0"
+            style="background-image: url(&quot;./images/b (1).webp&quot;)"
+          ></div>
+          <!-- Overlay for readability -->
+          <div class="absolute inset-0 bg-black/60"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto text-center text-white">
           <h1 class="text-5xl md:text-6xl font-bold mb-6">
-            Build your future with <span class="text-accent">Stackly</span>
+            Build your future with <span class="text-[#d4af37]">Stackly</span>
           </h1>
           <div
             class="bg-white p-2 rounded-xl shadow-2xl max-w-lg mx-auto flex flex-col md:flex-row gap-2"
@@ -111,9 +124,47 @@
         </div>
       </section>
 
+      <!-- Why Choose Us -->
+      <section class="py-16 px-6 max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          Why Choose Stackly?
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="p-6 bg-white border border-emerald-100 rounded-xl shadow-sm text-center"
+          >
+            <h4 class="font-bold text-xl mb-2 text-[#064e3b]">Elite Access</h4>
+            <p class="text-gray-600">
+              Gain entry to exclusive roles at the world's most innovative tech
+              firms.
+            </p>
+          </div>
+          <div
+            class="p-6 bg-white border border-emerald-100 rounded-xl shadow-sm text-center"
+          >
+            <h4 class="font-bold text-xl mb-2 text-[#064e3b]">Swift Apply</h4>
+            <p class="text-gray-600">
+              Our streamlined platform lets you apply to multiple roles in
+              seconds.
+            </p>
+          </div>
+          <div
+            class="p-6 bg-white border border-emerald-100 rounded-xl shadow-sm text-center"
+          >
+            <h4 class="font-bold text-xl mb-2 text-[#064e3b]">
+              Verified Talent
+            </h4>
+            <p class="text-gray-600">
+              We bridge the gap between high-potential talent and top-tier
+              recruiters.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <!-- Stats Section -->
       <section
-        class="py-16 px-6 max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+        class="py-16 px-6 max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center bg-gray-50 rounded-2xl"
       >
         <div class="stats-item" data-val="5000">
           <h3 class="text-3xl font-bold text-[#064e3b]">0+</h3>
@@ -141,9 +192,7 @@
         <div
           id="jobs-container"
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          <!-- Jobs populated by JS -->
-        </div>
+        ></div>
       </section>
 
       <!-- Final CTA -->
@@ -253,8 +302,24 @@
         </div>
       </div>
     </footer>
-    <script src="./main.js"></script>
+
+    <button id="scrollTopBtn">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 5l-7 7h4v7h6v-7h4z" />
+      </svg>
+    </button>
+
+    <script src="main.js"></script>
     <script>
+      // Hero Slider Logic
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".slider-image");
+      setInterval(() => {
+        slides[currentSlide].style.opacity = 0;
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].style.opacity = 1;
+      }, 1500);
+
       // Stats Animation
       const stats = document.querySelectorAll(".stats-item");
       stats.forEach((stat) => {
@@ -282,6 +347,9 @@
         "Quantum Soft",
         "WebFlow",
         "CyberGuard",
+        "DataStream",
+        "CloudScale",
+        "NextGen AI",
       ];
       const roles = [
         "Frontend Dev",
@@ -289,6 +357,9 @@
         "Data Scientist",
         "DevOps Lead",
         "Product Designer",
+        "UI/UX Designer",
+        "Content Writer",
+        "Tech support Engineer",
       ];
       const categories = ["Engineering", "Design", "Data", "Operations"];
       const expLevels = ["Entry Level", "Mid-Level", "Senior", "Lead"];
@@ -298,27 +369,24 @@
         "15-25 LPA",
         "30-45 LPA",
         "10-20 LPA",
+        "20-30 LPA",
+        "15-25 LPA",
+        "30-45 LPA",
       ];
 
       const container = document.getElementById("jobs-container");
-      for (let i = 1; i <= 50; i++) {
-        const role = roles[i % roles.length];
-        const company = companies[i % companies.length];
-        const category = categories[i % categories.length];
-        const exp = expLevels[i % expLevels.length];
-        const ctc = salaries[i % salaries.length];
-
+      for (let i = 1; i <= 80; i++) {
         const div = document.createElement("div");
         div.className =
           "bg-white p-6 border border-gray-100 rounded-xl hover:shadow-xl transition-all flex flex-col justify-between";
         div.innerHTML = `
                 <div>
-                    <h4 class="font-bold text-lg mb-1">${role}</h4>
-                    <p class="text-[#065f46] font-medium mb-1">${company}</p>
-                    <p class="text-sm font-semibold text-gray-700 mb-3">CTC: ${ctc}</p>
+                    <h4 class="font-bold text-lg mb-1">${roles[i % roles.length]}</h4>
+                    <p class="text-[#065f46] font-medium mb-1">${companies[i % companies.length]}</p>
+                    <p class="text-sm font-semibold text-gray-700 mb-3">CTC: ${salaries[i % salaries.length]}</p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-gray-100 px-2 py-1 rounded text-xs text-gray-600">${category}</span>
-                        <span class="bg-emerald-50 px-2 py-1 rounded text-xs text-[#064e3b] font-medium">${exp}</span>
+                        <span class="bg-gray-100 px-2 py-1 rounded text-xs text-gray-600">${categories[i % categories.length]}</span>
+                        <span class="bg-emerald-50 px-2 py-1 rounded text-xs text-[#064e3b] font-medium">${expLevels[i % expLevels.length]}</span>
                     </div>
                 </div>
                 <div class="flex gap-2 mt-4">
