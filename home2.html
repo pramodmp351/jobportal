@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stackly</title>
+
+<link rel="stylesheet" href="app.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+<div class="container">
+
+<div class="logo">
+<a href="home2.html">
+<img src="images/logo2.webp" alt="Stackly Logo">
+</a>
+</div>
+
+
+<nav class="nav">
+
+<ul>
+
+<li class="dropdown">
+<a href="home2.html">Home <i class="fa fa-angle-down"></i></a>
+
+<ul class="dropdown-menu">
+<li><a href="index.html">Home 1</a></li>
+</ul>
+
+</li>
+
+<li><a href="about2.html">About Us</a></li>
+<li><a href="services2.html">Services</a></li>
+<li><a href="blogs2.html">Blogs</a></li>
+<li><a href="contact2.html">Contact</a></li>
+
+
+
+
+</ul>
+
+</nav>
+
+
+<div class="login-btn">
+<a href="404page.html">Login</a>
+</div>
+
+
+<div class="hamburger">
+<i class="fa fa-bars"></i>
+</div>
+
+</div>
+
+</header>
+
+
+
+<div class="mobile-menu">
+
+<div class="mobile-header">
+
+<div class="close-menu">
+<i class="fa fa-times"></i>
+</div>
+
+</div>
+
+<ul>
+
+<li class="mobile-dropdown">
+
+<div class="mobile-link">
+Home <i class="fa fa-angle-down"></i>
+</div>
+
+<ul class="mobile-submenu">
+<li><a href="index.html">Home 1</a></li>
+</ul>
+
+</li>
+
+<li><a href="about2.html">About Us</a></li>
+<li><a href="services2.html">Services</a></li>
+<li><a href="blogs2.html">Blogs</a></li>
+<li><a href="contact2.html">Contact</a></li>
+
+</ul>
+
+<div class="mobile-login">
+<a href="404page.html">Login</a>
+</div>
+
+</div>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-container">
+
+<div class="hero-text" data-aos="fade-right">
+
+<span class="badge">New • Hire with hourly basis</span>
+
+<h1>
+Remote Work Platform <br>
+For Digital Team
+</h1>
+
+<p>
+Getting a new job is never easy. Check what new jobs we have in store for you on Stackly.
+</p>
+
+<div class="features">
+
+<div><i class="fa fa-check"></i> 5 Job Posted</div>
+<div><i class="fa fa-check"></i> Unlimited Team</div>
+<div><i class="fa fa-check"></i> 10 Featured Jobs</div>
+<div><i class="fa fa-check"></i> Lifetime Support</div>
+
+</div>
+
+<!-- SEARCH BOX -->
+
+<div class="search-box">
+
+<input type="text" id="jobKeyword" placeholder="Skills, Designations, Keyword">
+
+<select id="jobCategory">
+<option value="">Job Category</option>
+<option value="Developer">Developer</option>
+<option value="Designer">Designer</option>
+</select>
+
+<button id="findJobBtn">Find Job</button>
+
+</div>
+
+<!-- ERROR MESSAGE -->
+<p id="jobErrorMsg"></p>
+
+</div>
+
+
+<div class="hero-image" data-aos="fade-left">
+<img src="images/home2.webp">
+</div>
+
+</div>
+
+</section>
+
+
+
+<script>
+
+document.getElementById("findJobBtn").addEventListener("click", function(){
+
+let keyword = document.getElementById("jobKeyword");
+let category = document.getElementById("jobCategory");
+let errorMsg = document.getElementById("jobErrorMsg");
+
+let valid = true;
+
+/* RESET */
+
+keyword.classList.remove("error");
+category.classList.remove("error");
+errorMsg.innerText = "";
+
+/* CHECK KEYWORD */
+
+if(keyword.value.trim() === ""){
+keyword.classList.add("error");
+valid = false;
+}
+
+/* CHECK CATEGORY */
+
+if(category.value === ""){
+category.classList.add("error");
+valid = false;
+}
+
+/* SHOW ERROR MESSAGE */
+
+if(!valid){
+
+errorMsg.style.color = "red";
+errorMsg.style.marginTop = "10px";
+errorMsg.innerText = "⚠ Please fill all the fields";
+
+return;
+
+}
+
+/* SUCCESS REDIRECT */
+
+window.location.href = "404page.html";
+
+});
+
+</script>
+<!-- FEATURED JOBS -->
+
+<section class="jobs">
+
+<div class="jobs-title" data-aos="fade-up">
+
+<h2>Featured Jobs</h2>
+
+<p>
+Discover exciting career opportunities on <b>Stackly</b>. 
+Find the best tech jobs from startups and companies around the world.
+</p>
+
+</div>
+
+
+<div class="jobs-container">
+
+
+<!-- JOB 1 -->
+
+<div class="job-card" data-aos="fade-up">
+
+<div class="job-tags">
+<span class="featured">Featured</span>
+<span class="urgent">Urgent</span>
+</div>
+
+<img src="images/mo (13).webp" class="job-logo">
+
+<h3>Frontend Developer</h3>
+
+<p>HTML5, CSS3, JavaScript, React</p>
+
+<div class="job-bottom">
+
+<span class="salary">$5K – $8K</span>
+
+<button class="open-btn">6 Open</button>
+
+</div>
+
+</div>
+
+
+<!-- JOB 2 -->
+
+<div class="job-card" data-aos="fade-up">
+
+<div class="job-tags">
+<span class="urgent">Urgent</span>
+<span class="freelancer">Freelancer</span>
+</div>
+
+<img src="images/mo (14).webp" class="job-logo">
+
+<h3>Project Manager</h3>
+
+<p>Leadership, Agile, Scrum, Jira</p>
+
+<div class="job-bottom">
+
+<span class="salary">$6K – $10K</span>
+
+<button class="open-btn">4 Open</button>
+
+</div>
+
+</div>
+
+
+<!-- JOB 3 -->
+
+<div class="job-card" data-aos="fade-up">
+
+<div class="job-tags">
+<span class="featured">Featured</span>
+<span class="part">Part Time</span>
+</div>
+
+<img src="images/mo (15).webp" class="job-logo">
+
+<h3>WordPress Developer</h3>
+
+<p>CSS3, HTML5, WordPress, jQuery</p>
+
+<div class="job-bottom">
+
+<span class="salary">$5K – $8K</span>
+
+<button class="open-btn">3 Open</button>
+
+</div>
+
+</div>
+
+
+<!-- JOB 4 -->
+
+<div class="job-card" data-aos="fade-up">
+
+<div class="job-tags">
+<span class="featured">Featured</span>
+<span class="full">Full Time</span>
+</div>
+
+<img src="images/mo (16).webp" class="job-logo">
+
+<h3>Laravel Developer</h3>
+
+<p>PHP, Laravel, MySQL, APIs</p>
+
+<div class="job-bottom">
+
+<span class="salary">$4.2K – $6K</span>
+
+<button class="open-btn">2 Open</button>
+
+</div>
+
+</div>
+
+
+<!-- JOB 5 -->
+
+<div class="job-card" data-aos="fade-up">
+
+<div class="job-tags">
+<span class="urgent">Urgent</span>
+<span class="freelancer">Remote</span>
+</div>
+
+<img src="images/mo (17).webp" class="job-logo">
+
+<h3>UI / UX Designer</h3>
+
+<p>Figma, Adobe XD, User Research</p>
+
+<div class="job-bottom">
+
+<span class="salary">$4K – $5.5K</span>
+
+<button class="open-btn">5 Open</button>
+
+</div>
+
+</div>
+
+
+<!-- JOB 6 -->
+
+<div class="job-card" data-aos="fade-up">
+
+<div class="job-tags">
+<span class="featured">Featured</span>
+<span class="full">Full Time</span>
+</div>
+
+<img src="images/mo (18).webp" class="job-logo">
+
+<h3>Java & Python Developer</h3>
+
+<p>Java, Python, APIs, Spring Boot</p>
+
+<div class="job-bottom">
+
+<span class="salary">$2K – $4K</span>
+
+<button class="open-btn">4 Open</button>
+
+</div>
+
+</div>
+
+
+<!-- JOB 7 -->
+
+<div class="job-card" data-aos="fade-up">
+
+<div class="job-tags">
+<span class="urgent">Urgent</span>
+<span class="full">Full Time</span>
+</div>
+
+<img src="images/mo (19).webp" class="job-logo">
+
+<h3>CodeIgniter Developer</h3>
+
+<p>PHP, CodeIgniter, MySQL</p>
+
+<div class="job-bottom">
+
+<span class="salary">$5K – $6K</span>
+
+<button class="open-btn">3 Open</button>
+
+</div>
+
+</div>
+
+
+<!-- JOB 8 -->
+
+<div class="job-card" data-aos="fade-up">
+
+<div class="job-tags">
+<span class="featured">Featured</span>
+<span class="freelancer">Freelancer</span>
+</div>
+
+<img src="images/mo (20).webp" class="job-logo">
+
+<h3>Magento Developer</h3>
+
+<p>Magento, PHP, eCommerce</p>
+
+<div class="job-bottom">
+
+<span class="salary">$3.2K – $5K</span>
+
+<button class="open-btn">5 Open</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+<!-- TOP CATEGORIES -->
+
+<section class="categories">
+
+<div class="categories-title" data-aos="fade-up">
+
+<h2>Explore Top Categories</h2>
+
+<p>
+Explore trending job categories on <b>Stackly</b> and discover
+opportunities that match your skills and career goals.
+</p>
+
+</div>
+
+
+<div class="categories-container">
+
+
+<!-- CATEGORY 1 -->
+
+<div class="category-card" data-aos="fade-up">
+
+<i class="fa-solid fa-file-invoice"></i>
+
+<h3>Accounting & Finance</h3>
+
+<p>
+Find finance, accounting, and auditing jobs in leading companies.
+</p>
+
+<span>122 Active Jobs</span>
+
+</div>
+
+
+<!-- CATEGORY 2 -->
+
+<div class="category-card" data-aos="fade-up">
+
+<i class="fa-solid fa-truck"></i>
+
+<h3>Logistics & Transport</h3>
+
+<p>
+Explore logistics, supply chain, and transportation job roles.
+</p>
+
+<span>78 Active Jobs</span>
+
+</div>
+
+
+<!-- CATEGORY 3 -->
+
+<div class="category-card" data-aos="fade-up">
+
+<i class="fa-solid fa-chalkboard-teacher"></i>
+
+<h3>Education & Training</h3>
+
+<p>
+Teaching, mentoring, and professional training job openings.
+</p>
+
+<span>25 Active Jobs</span>
+
+</div>
+
+
+<!-- CATEGORY 4 -->
+
+<div class="category-card" data-aos="fade-up">
+
+<i class="fa-solid fa-user-graduate"></i>
+
+<h3>Human Resources</h3>
+
+<p>
+Recruitment, HR management, and employee engagement jobs.
+</p>
+
+<span>212 Active Jobs</span>
+
+</div>
+
+
+<!-- CATEGORY 5 -->
+
+<div class="category-card" data-aos="fade-up">
+
+<i class="fa-solid fa-briefcase-medical"></i>
+
+<h3>Healthcare</h3>
+
+<p>
+Medical, nursing, and healthcare professional opportunities.
+</p>
+
+<span>90 Active Jobs</span>
+
+</div>
+
+
+<!-- CATEGORY 6 -->
+
+<div class="category-card" data-aos="fade-up">
+
+<i class="fa-solid fa-burger"></i>
+
+<h3>Food & Restaurant</h3>
+
+<p>
+Hospitality, chef, and restaurant management jobs.
+</p>
+
+<span>65 Active Jobs</span>
+
+</div>
+
+
+<!-- CATEGORY 7 -->
+
+<div class="category-card" data-aos="fade-up">
+
+<i class="fa-solid fa-plane"></i>
+
+<h3>Travel & Tourism</h3>
+
+<p>
+Airlines, travel agencies, and tourism related jobs.
+</p>
+
+<span>160 Active Jobs</span>
+
+</div>
+
+
+<!-- CATEGORY 8 -->
+
+<div class="category-card" data-aos="fade-up">
+
+<i class="fa-solid fa-mobile-screen"></i>
+
+<h3>Technology</h3>
+
+<p>
+Software development, AI, cloud, and IT jobs.
+</p>
+
+<span>80 Active Jobs</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- TRUSTED JOB PORTAL -->
+
+<section class="trusted">
+
+<div class="trusted-container">
+
+
+<!-- LEFT IMAGE -->
+
+<div class="trusted-image" data-aos="fade-right">
+
+<img src="images/mo (21).webp" alt="team">
+
+</div>
+
+
+<!-- RIGHT CONTENT -->
+
+<div class="trusted-content" data-aos="fade-left">
+
+<span class="badge">Advanced Features</span>
+
+<h2>Trusted & Popular <br> Job Portal</h2>
+
+<p>
+Stackly connects talented professionals with the best companies
+around the world. Discover top opportunities and build your career.
+</p>
+
+
+<div class="trusted-list">
+
+<div class="trusted-item">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+<h4>#1 Quality Jobs</h4>
+<p>Find verified job listings from trusted companies worldwide.</p>
+</div>
+
+</div>
+
+
+<div class="trusted-item">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+<h4>Top Companies</h4>
+<p>Work with leading global companies hiring skilled professionals.</p>
+</div>
+
+</div>
+
+
+<div class="trusted-item">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+<h4>International Jobs</h4>
+<p>Explore remote and international job opportunities easily.</p>
+</div>
+
+</div>
+
+
+<div class="trusted-item">
+
+<i class="fa-solid fa-check"></i>
+
+<div>
+<h4>No Extra Charges</h4>
+<p>Stackly provides free job search with no hidden fees.</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+<!-- JOB PLATFORM SHOWCASE -->
+
+<section class="showcase">
+
+<div class="showcase-container">
+
+
+<!-- LEFT CONTENT -->
+
+<div class="showcase-text" data-aos="fade-right">
+
+<span class="showcase-badge">Our Showcase</span>
+
+<h2>
+Best Job Search Platform <br>
+Experience for you
+</h2>
+
+<p>
+Stackly helps professionals find their dream job easily. 
+Connect with top companies, upload your resume, and explore thousands of opportunities.
+</p>
+
+
+<div class="showcase-list">
+
+<div> <i class="fa fa-check"></i> Corporate Business Jobs</div>
+<div> <i class="fa fa-check"></i> Company Showcase</div>
+
+<div> <i class="fa fa-check"></i> Creative Services</div>
+<div> <i class="fa fa-check"></i> Easy To Upload Resume</div>
+
+<div> <i class="fa fa-check"></i> Online E-commerce</div>
+<div> <i class="fa fa-check"></i> Hire Expert Candidates</div>
+
+</div>
+
+
+<a href="404page.html" class="showcase-btn">
+Explore More Jobs
+</a>
+
+</div>
+
+
+
+<!-- RIGHT IMAGE -->
+
+<div class="showcase-image" data-aos="fade-left">
+
+<img src="images/mo (22).webp" alt="job platform">
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- CUSTOMER REVIEWS -->
+
+<section class="reviews">
+
+<div class="reviews-title" data-aos="fade-up">
+
+<h2>Good Reviews By Customers</h2>
+
+<p>
+See what professionals say about <b>Stackly</b> and how our platform
+helps them find better job opportunities.
+</p>
+
+</div>
+
+
+<div class="reviews-container">
+
+
+<!-- REVIEW 1 -->
+
+<div class="review-card" data-aos="fade-up">
+
+<h4>"The best useful website"</h4>
+
+<p>
+Stackly helped me find amazing job opportunities quickly.
+The platform is simple and efficient.
+</p>
+
+<div class="review-user">
+
+<img src="images/mo (23).webp">
+
+<div>
+<h5>Lucia E. Nugent</h5>
+<span>CEO of Climber</span>
+
+<div class="stars">
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- REVIEW 2 -->
+
+<div class="review-card" data-aos="fade-up">
+
+<h4>"Ranking is the #1"</h4>
+
+<p>
+This job portal is one of the best platforms to explore
+career opportunities in the tech industry.
+</p>
+
+<div class="review-user">
+
+<img src="images/mo (24).webp">
+
+<div>
+<h5>Brenda R. Smith</h5>
+<span>Founder of Yelower</span>
+
+<div class="stars">
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- REVIEW 3 -->
+
+<div class="review-card" data-aos="fade-up">
+
+<h4>"Very developer friendly"</h4>
+
+<p>
+Stackly offers a clean interface and powerful job search
+tools for developers worldwide.
+</p>
+
+<div class="review-user">
+
+<img src="images/mo (25).webp">
+
+<div>
+<h5>Brian B. Wilkerson</h5>
+<span>CEO of Mark Soft</span>
+
+<div class="stars">
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- REVIEW 4 -->
+
+<div class="review-card" data-aos="fade-up">
+
+<h4>"100% secure website"</h4>
+
+<p>
+Uploading resumes and applying for jobs is very easy
+on the Stackly platform.
+</p>
+
+<div class="review-user">
+
+<img src="images/mo (26).webp">
+
+<div>
+<h5>Miguel L. Benbow</h5>
+<span>Founder of Mitche LTD</span>
+
+<div class="stars">
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- REVIEW 5 -->
+
+<div class="review-card" data-aos="fade-up">
+
+<h4>"Amazing experience"</h4>
+
+<p>
+Stackly helped me connect with top companies and build
+my career faster.
+</p>
+
+<div class="review-user">
+
+<img src="images/mo (27).webp">
+
+<div>
+<h5>Hilda A. Sheppard</h5>
+<span>CEO of Doodle</span>
+
+<div class="stars">
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="review-card" data-aos="fade-up">
+
+<h4>"Excellent job search platform"</h4>
+
+<p>
+Stackly made my job search simple and fast. I found my dream
+developer job within a few weeks of using the platform.
+</p>
+
+<div class="review-user">
+
+<img src="images/mo (27).webp">
+
+<div>
+
+<h5>Daniel K. Carter</h5>
+<span>Software Engineer at TechWave</span>
+
+<div class="stars">
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+</section>
+
+
+<!-- EXPLORE JOBS BY CITY -->
+
+<section class="cities">
+
+<div class="cities-title" data-aos="fade-up">
+
+<h2>Explore Jobs in Popular Cities</h2>
+
+<p>
+Discover job opportunities across top cities with Stackly.
+Find the best career options near you.
+</p>
+
+</div>
+
+
+<div class="cities-container">
+
+
+<!-- CITY 1 -->
+
+<div class="city-card" data-aos="fade-up">
+
+<img src="images/mo (1).webp">
+
+<h4>London, UK</h4>
+
+<span>307+ Jobs</span>
+
+</div>
+
+
+<!-- CITY 2 -->
+
+<div class="city-card" data-aos="fade-up">
+
+<img src="images/mo (2).webp">
+
+<h4>Tokyo, Japan</h4>
+
+<span>102+ Jobs</span>
+
+</div>
+
+
+<!-- CITY 3 -->
+
+<div class="city-card" data-aos="fade-up">
+
+<img src="images/mo (3).webp">
+
+<h4>Mumbai, India</h4>
+
+<span>200+ Jobs</span>
+
+</div>
+
+
+<!-- CITY 4 -->
+
+<div class="city-card" data-aos="fade-up">
+
+<img src="images/mo (36).webp">
+
+<h4>Surat, India</h4>
+
+<span>800+ Jobs</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+<!-- TRENDING NEWS -->
+
+<section class="blog">
+
+<div class="blog-title" data-aos="fade-up">
+
+<h2>Trending News By Stackly</h2>
+
+<p>
+Stay updated with the latest career tips, job market insights,
+and professional development news from Stackly.
+</p>
+
+</div>
+
+
+<div class="blog-container">
+
+
+<!-- BLOG 1 -->
+
+<div class="blog-card" data-aos="fade-up">
+
+<div class="blog-image">
+
+<img src="images/mo (4).webp">
+
+<span class="blog-date">10 Jul 2024</span>
+
+</div>
+
+<h4>How To Work with Stackly Agency</h4>
+
+<p>
+Discover how Stackly connects professionals with top
+companies and helps build successful careers.
+</p>
+
+<a href="404page.html" class="blog-btn">Continue Reading</a>
+
+</div>
+
+
+<!-- BLOG 2 -->
+
+<div class="blog-card" data-aos="fade-up">
+
+<div class="blog-image">
+
+<img src="images/mo (5).webp">
+
+<span class="blog-date">17 Jan 2024</span>
+
+</div>
+
+<h4>Want To Earn Money with Stackly?</h4>
+
+<p>
+Learn how freelancers and developers can find new
+income opportunities through the Stackly platform.
+</p>
+
+<a href="404page.html" class="blog-btn">Continue Reading</a>
+
+</div>
+
+
+<!-- BLOG 3 -->
+
+<div class="blog-card" data-aos="fade-up">
+
+<div class="blog-image">
+
+<img src="images/mo (6).webp">
+
+<span class="blog-date">26 Feb 2024</span>
+
+</div>
+
+<h4>Get Career Support from Stackly</h4>
+
+<p>
+Stackly provides tools and guidance to help job seekers
+reach their professional goals faster.  stackly provides seamless functions.
+</p>
+
+<a href="404page.html" class="blog-btn">Continue Reading</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<!-- CTA SECTION -->
+
+
+<!-- CTA SECTION -->
+
+<section class="cta">
+
+<h2>Find The Perfect Job <br> on Stackly That is Superb For You</h2>
+
+<p>
+Stackly helps professionals connect with the best companies worldwide.
+Upload your resume and start your career journey today.
+</p>
+
+<div class="cta-buttons">
+
+<a href="404page.html" class="btn-green">Upload Resume</a>
+<a href="404page.html" class="btn-light">Join Our Team</a>
+
+</div>
+
+</section>
+
+
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter">
+
+<form id="subscribeForm">
+
+<div class="subscribe-box">
+
+<input type="text" id="email" placeholder="Enter your email">
+
+<button type="submit">Subscribe</button>
+
+</div>
+
+<p id="emailError"></p>
+
+</form>
+
+
+<div class="stats">
+
+<div>
+<h3>12K</h3>
+<span>Jobs Posted</span>
+</div>
+
+<div>
+<h3>10M</h3>
+<span>Happy Customers</span>
+</div>
+
+<div>
+<h3>76K</h3>
+<span>Freelancers</span>
+</div>
+
+<div>
+<h3>200+</h3>
+<span>Companies</span>
+</div>
+
+</div>
+
+</section>
+
+
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<div class="footer-container">
+
+
+<!-- LOGO SECTION -->
+
+<div class="footer-col">
+<div class="footer-logo">
+  <a href="home2.html">
+    <img src="images/logo2.webp" alt="Stackly Logo">
+  </a>
+</div>
+<p>
+Stackly connects job seekers with top companies worldwide.
+Find opportunities and build your career with us.
+</p>
+
+
+<div class="social-icons">
+
+<a href="404page.html"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="404page.html"><i class="fa-brands fa-twitter"></i></a>
+<a href="404page.html"><i class="fa-brands fa-linkedin-in"></i></a>
+<a href="404page.html"><i class="fa-brands fa-instagram"></i></a>
+
+</div>
+
+</div>
+
+
+
+<!-- LINKS -->
+
+<div class="footer-col">
+
+<h4>For Clients</h4>
+
+<ul>
+<li><a href="404page.html">Post Jobs</a></li>
+<li><a href="404page.html">Success Stories</a></li>
+<li><a href="404page.html">Resources</a></li>
+<li><a href="404page.html">Help & Support</a></li>
+</ul>
+
+</div>
+
+
+
+<div class="footer-col">
+
+<h4>Resources</h4>
+
+<ul>
+<li><a href="404page.html">Career Tips</a></li>
+<li><a href="404page.html">Resume Guide</a></li>
+<li><a href="404page.html">Interview Tips</a></li>
+<li><a href="404page.html">Blog</a></li>
+</ul>
+
+</div>
+
+
+
+<div class="footer-col">
+
+<h4>The Company</h4>
+
+<ul>
+<li><a href="404page.html">About Us</a></li>
+<li><a href="404page.html">Leadership</a></li>
+<li><a href="404page.html">Contact Us</a></li>
+<li><a href="404page.html">Security</a></li>
+</ul>
+
+</div>
+
+</div>
+
+
+
+<div class="copyright">
+
+<p>© 2026 Stackly. All Rights Reserved.</p>
+
+</div>
+
+</footer>
+
+
+<!-- SCROLL TO TOP BUTTON -->
+
+<button id="scrollTopBtn">
+<i class="fa fa-arrow-up"></i>
+</button>
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

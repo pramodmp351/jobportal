@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>404 - Page Not Found</title>
+
+<style>
+
+/* GLOBAL */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
+}
+
+body{
+height:100vh;
+background:#18251b;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+
+/* CONTAINER */
+
+.error-container{
+max-width:600px;
+animation:fadeUp .8s ease;
+}
+
+
+/* 404 NUMBER */
+
+.error-container h1{
+font-size:120px;
+font-weight:900;
+letter-spacing:5px;
+margin-bottom:10px;
+}
+
+
+/* TEXT */
+
+.error-container h2{
+font-size:28px;
+margin-bottom:15px;
+}
+
+.error-container p{
+opacity:.85;
+line-height:1.6;
+margin-bottom:30px;
+}
+
+
+/* BUTTON */
+
+.home-btn{
+display:inline-block;
+padding:14px 30px;
+background:white;
+color:#18251b;
+font-weight:bold;
+border-radius:8px;
+text-decoration:none;
+transition:.3s;
+}
+
+.home-btn:hover{
+background:#dcdcdc;
+}
+
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+
+0%{
+opacity:0;
+transform:translateY(40px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.error-container h1{
+font-size:90px;
+}
+
+.error-container h2{
+font-size:22px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="error-container">
+
+<h1>404</h1>
+
+<h2>Page Not Found</h2>
+
+<p>
+The page you are looking for might have been removed,  
+renamed, or is temporarily unavailable.
+</p>
+
+<a href="index.html" class="home-btn">
+Return to Home
+</a>
+
+</div>
+
+</body>
+</html>

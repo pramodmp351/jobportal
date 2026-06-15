@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly | Find Your Next Tech Role</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --brand-blue: #064e3b;
+        --primary-blue: #065f46;
+        --dark-blue: #022c22;
+        --accent-orange: #d4af37;
+      }
+
+      body {
+        background-color: #f8fafc;
+        color: var(--dark-blue);
+        font-family: "Inter", sans-serif;
+      }
+      .text-accent {
+        color: var(--accent-orange);
+      }
+      .bg-accent {
+        background-color: var(--accent-orange);
+      }
+      .border-accent {
+        border-color: var(--accent-orange);
+      }
+      .hero-gradient {
+        background: linear-gradient(
+          135deg,
+          var(--dark-blue) 0%,
+          var(--brand-blue) 100%
+        );
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <header class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/loo.webp" alt="Stackly Logo" />
+          </a>
+        </div>
+
+        <nav class="nav-menu" id="navMenu">
+          <div class="close-menu" id="closeMenu">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+
+          <ul>
+            <li class="dropdown">
+              <a href="index.html">Home <i class="fa fa-angle-down"></i></a>
+
+              <ul class="dropdown-menu">
+                <li><a href="home2.html">Home 2</a></li>
+              </ul>
+            </li>
+
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-right">
+          <a href="login.html" class="login-btn">Login</a>
+
+          <div class="hamburger" id="hamburger">
+            <i class="fa fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="flex-grow">
+      <!-- Hero Section -->
+      <section class="hero-gradient text-white py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6">
+            Build your future with <span class="text-accent">Stackly</span>
+          </h1>
+          <div
+            class="bg-white p-2 rounded-xl shadow-2xl max-w-lg mx-auto flex flex-col md:flex-row gap-2"
+          >
+            <input
+              type="text"
+              placeholder="Job title or keywords"
+              class="flex-grow px-4 py-3 text-gray-800 rounded-lg focus:outline-none"
+            />
+            <button
+              class="bg-[#065f46] text-white px-8 py-3 rounded-lg font-semibold hover:bg-emerald-900 transition-colors"
+              onclick="window.location.href = './404.html'"
+            >
+              Search Jobs
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Section -->
+      <section
+        class="py-16 px-6 max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+      >
+        <div class="stats-item" data-val="5000">
+          <h3 class="text-3xl font-bold text-[#064e3b]">0+</h3>
+          <p class="text-gray-600">Roles</p>
+        </div>
+        <div class="stats-item" data-val="1200">
+          <h3 class="text-3xl font-bold text-[#064e3b]">0+</h3>
+          <p class="text-gray-600">Companies</p>
+        </div>
+        <div class="stats-item" data-val="98">
+          <h3 class="text-3xl font-bold text-[#064e3b]">0%</h3>
+          <p class="text-gray-600">Placement</p>
+        </div>
+        <div class="stats-item" data-val="250">
+          <h3 class="text-3xl font-bold text-[#064e3b]">0+</h3>
+          <p class="text-gray-600">Daily Updates</p>
+        </div>
+      </section>
+
+      <!-- Jobs List Grid -->
+      <section class="py-16 px-6 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center">
+          Latest Opportunities
+        </h2>
+        <div
+          id="jobs-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <!-- Jobs populated by JS -->
+        </div>
+      </section>
+
+      <!-- Final CTA -->
+      <section class="py-20 px-6 text-center bg-[#064e3b] text-white">
+        <h2 class="text-4xl font-bold mb-4">
+          Still haven't found your perfect match?
+        </h2>
+        <p class="text-emerald-100 mb-8 max-w-lg mx-auto">
+          Upload your resume to our talent pool and let top companies come to
+          you.
+        </p>
+        <a
+          href="./404.html"
+          class="inline-block bg-[#d4af37] text-emerald-950 font-bold px-10 py-4 rounded-xl hover:bg-yellow-500 transition-colors"
+        >
+          Join Our Talent Network
+        </a>
+      </section>
+    </main>
+    <footer class="stackly-footer">
+      <div class="footer-container">
+        <!-- LOGO -->
+        <div class="footer-logo">
+          <a href="index.html">
+            <img src="images/loo.webp" alt="logo" />
+          </a>
+        </div>
+
+        <!-- SERVICES -->
+
+        <div class="footer-col">
+          <h3>Services</h3>
+
+          <a href="404.html">Browse Jobs</a> <a href="404.html">Companies</a>
+          <a href="404.html">Candidates</a> <a href="404.html">Pricing</a>
+        </div>
+
+        <!-- COMPANY -->
+
+        <div class="footer-col">
+          <h3>Company</h3>
+
+          <a href="about.html">About Us</a> <a href="blogs.html">Blog</a>
+          <a href="404.html">FAQ's</a> <a href="contact.html">Contact</a>
+        </div>
+
+        <!-- SUPPORT -->
+
+        <div class="footer-col">
+          <h3>Support</h3>
+
+          <a href="404.html">Terms Of Use</a> <a href="#">Terms & Conditions</a>
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Cookies Policy</a>
+        </div>
+
+        <!-- SUBSCRIBE -->
+
+        <div class="footer-col subscribe">
+          <h3>Subscribe</h3>
+
+          <input type="email" id="emailInput" placeholder="Email" />
+
+          <button onclick="validateEmail()">Subscribe Now</button>
+
+          <p class="note">We only send interesting and relevant emails.</p>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="footer-bottom">
+        <p>© Stackly Job Portal — All Rights Reserved</p>
+
+        <div class="social">
+          <a href="404.html" class="social-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M22 12a10 10 0 10-11.5 9.9v-7h-2.6V12h2.6V9.7c0-2.6 1.6-4 3.9-4 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0022 12z"
+              />
+            </svg>
+          </a>
+
+          <a href="404.html" class="social-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M7 2C4.8 2 3 3.8 3 6v12c0 2.2 1.8 4 4 4h10c2.2 0 4-1.8 4-4V6c0-2.2-1.8-4-4-4H7zm5 5.5A4.5 4.5 0 1112 17a4.5 4.5 0 010-9.5zm5.3-.9a1 1 0 11-2 0 1 1 0 012 0z"
+              />
+            </svg>
+          </a>
+
+          <a href="404.html" class="social-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M22 5.9c-.8.4-1.6.6-2.4.8.9-.5 1.5-1.3 1.8-2.2-.8.5-1.8.9-2.7 1.1A4.2 4.2 0 0015.5 4c-2.3 0-4.1 2-3.6 4.3A11.9 11.9 0 013 5.1a4.2 4.2 0 001.3 5.6c-.7 0-1.3-.2-1.9-.5 0 2 1.4 3.7 3.4 4.1-.6.2-1.3.2-1.9.1.5 1.6 2.1 2.8 4 2.8A8.5 8.5 0 012 19.5 12 12 0 008.3 21c7.6 0 11.8-6.4 11.5-12.2.8-.6 1.5-1.3 2.1-2.1z"
+              />
+            </svg>
+          </a>
+
+          <a href="404.html" class="social-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.3-1.8 3.5 0 4.1 2.3 4.1 5.3v6.3zM5.3 7.4A2.1 2.1 0 115.3 3a2.1 2.1 0 010 4.4zM7.1 20.4H3.5V9h3.6v11.4z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script src="./main.js"></script>
+    <script>
+      // Stats Animation
+      const stats = document.querySelectorAll(".stats-item");
+      stats.forEach((stat) => {
+        const target = +stat.getAttribute("data-val");
+        let count = 0;
+        const update = () => {
+          count += Math.ceil(target / 50);
+          if (count < target) {
+            stat.querySelector("h3").innerText =
+              count + (target === 98 ? "%" : "+");
+            setTimeout(update, 20);
+          } else
+            stat.querySelector("h3").innerText =
+              target + (target === 98 ? "%" : "+");
+        };
+        update();
+      });
+
+      // Job Data Generation
+      const companies = [
+        "Innovatech",
+        "DataStream",
+        "CloudScale",
+        "NextGen AI",
+        "Quantum Soft",
+        "WebFlow",
+        "CyberGuard",
+      ];
+      const roles = [
+        "Frontend Dev",
+        "Backend Engineer",
+        "Data Scientist",
+        "DevOps Lead",
+        "Product Designer",
+      ];
+      const categories = ["Engineering", "Design", "Data", "Operations"];
+      const expLevels = ["Entry Level", "Mid-Level", "Senior", "Lead"];
+      const salaries = [
+        "12-18 LPA",
+        "20-30 LPA",
+        "15-25 LPA",
+        "30-45 LPA",
+        "10-20 LPA",
+      ];
+
+      const container = document.getElementById("jobs-container");
+      for (let i = 1; i <= 50; i++) {
+        const role = roles[i % roles.length];
+        const company = companies[i % companies.length];
+        const category = categories[i % categories.length];
+        const exp = expLevels[i % expLevels.length];
+        const ctc = salaries[i % salaries.length];
+
+        const div = document.createElement("div");
+        div.className =
+          "bg-white p-6 border border-gray-100 rounded-xl hover:shadow-xl transition-all flex flex-col justify-between";
+        div.innerHTML = `
+                <div>
+                    <h4 class="font-bold text-lg mb-1">${role}</h4>
+                    <p class="text-[#065f46] font-medium mb-1">${company}</p>
+                    <p class="text-sm font-semibold text-gray-700 mb-3">CTC: ${ctc}</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 px-2 py-1 rounded text-xs text-gray-600">${category}</span>
+                        <span class="bg-emerald-50 px-2 py-1 rounded text-xs text-[#064e3b] font-medium">${exp}</span>
+                    </div>
+                </div>
+                <div class="flex gap-2 mt-4">
+                    <a href="./404.html" class="flex-1 text-center px-4 py-2 border border-[#064e3b] text-[#064e3b] rounded-lg hover:bg-emerald-50 text-sm font-semibold">Save</a>
+                    <a href="./404.html" class="flex-1 text-center px-4 py-2 bg-[#065f46] text-white rounded-lg hover:bg-emerald-900 text-sm font-semibold">Apply</a>
+                </div>
+            `;
+        container.appendChild(div);
+      }
+    </script>
+  </body>
+</html>

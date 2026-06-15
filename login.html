@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stackly Job Portal Authentication</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+
+/* GLOBAL */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
+}
+
+body{
+min-height:100vh;
+background:#18251b;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+
+/* MAIN CARD */
+
+.auth-wrapper{
+width:95%;
+max-width:1100px;
+min-height:650px;
+background:white;
+border-radius:18px;
+display:flex;
+overflow:hidden;
+box-shadow:0 25px 60px rgba(0,0,0,.3);
+}
+
+
+/* LEFT SIDE */
+
+.auth-info{
+flex:1;
+background:#18251b;
+color:white;
+padding:60px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.auth-info h1{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.auth-info p{
+opacity:.9;
+line-height:1.6;
+}
+
+
+/* INSTRUCTIONS BOX */
+
+.instructions{
+margin-top:25px;
+background:rgba(255,255,255,.1);
+padding:20px;
+border-radius:12px;
+line-height:1.8;
+}
+
+
+/* RIGHT SIDE */
+
+.auth-box{
+flex:1;
+position:relative;
+overflow:hidden;
+}
+
+
+/* FORMS */
+
+.form{
+position:absolute;
+width:100%;
+height:100%;
+padding:60px;
+transition:.6s;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.login{left:0;}
+.register{left:100%;}
+
+.auth-box.active .login{
+left:-100%;
+}
+
+.auth-box.active .register{
+left:0;
+}
+
+h2{
+margin-bottom:15px;
+color:#18251b;
+}
+
+
+/* ERROR MESSAGE */
+
+.error-msg{
+color:red;
+height:20px;
+font-size:14px;
+margin-bottom:10px;
+}
+
+
+/* INPUT */
+
+.input-group{
+position:relative;
+margin-bottom:18px;
+}
+
+input{
+width:100%;
+padding:14px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:15px;
+}
+
+input:focus{
+border-color:#18251b;
+outline:none;
+}
+
+
+/* PASSWORD ICON */
+
+.eye{
+position:absolute;
+right:15px;
+top:50%;
+transform:translateY(-50%);
+cursor:pointer;
+color:#555;
+}
+
+
+/* BUTTON */
+
+button{
+padding:14px;
+background:#18251b;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+transition:.3s;
+}
+
+button:hover{
+background:#2e4434;
+}
+
+
+/* SWITCH LINK */
+
+.switch{
+margin-top:15px;
+text-align:center;
+}
+
+.switch a{
+color:#18251b;
+font-weight:bold;
+cursor:pointer;
+}
+
+
+/* FORGOT */
+
+.forgot{
+margin-top:8px;
+text-align:right;
+font-size:14px;
+}
+
+.forgot a{
+color:#18251b;
+cursor:pointer;
+}
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+body{
+align-items:flex-start;
+}
+
+.auth-wrapper{
+flex-direction:column;
+}
+
+.auth-info{
+padding:35px 25px;
+text-align:center;
+}
+
+.auth-box{
+min-height:75vh;
+overflow-y:auto;
+}
+
+.form{
+padding:35px 25px 70px;
+justify-content:flex-start;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="auth-wrapper">
+
+<!-- LEFT PANEL -->
+
+<div class="auth-info">
+
+<h1>Stackly Job Portal</h1>
+
+<p>
+Find your dream job and connect with top companies.
+Stackly helps job seekers discover opportunities
+and employers hire the best talent.
+</p>
+
+<div class="instructions">
+
+<b>Portal Instructions</b><br><br>
+
+✔ Enter valid email and password<br>
+✔ All fields must be completed<br>
+✔ Password minimum 6 characters<br>
+✔ Secure login to your dashboard<br>
+✔ Manage jobs, applications & profile
+
+</div>
+
+</div>
+
+
+<!-- RIGHT PANEL -->
+
+<div class="auth-box" id="authBox">
+
+
+<!-- LOGIN FORM -->
+
+<div class="form login">
+
+<h2>Login Account</h2>
+
+<p class="error-msg" id="loginError"></p>
+
+<div class="input-group">
+<input type="email" placeholder="Email Address">
+</div>
+
+<div class="input-group">
+<input type="password" id="loginPass" placeholder="Password">
+<i class="fa-solid fa-eye eye"
+onclick="togglePass('loginPass',this)"></i>
+</div>
+
+<div class="forgot">
+<a onclick="forgotPassword()">Forgot Password?</a>
+</div>
+
+<button onclick="loginUser()">Login Now</button>
+
+<p class="switch">
+Don't have account?
+<a onclick="switchForm()">Register</a>
+</p>
+
+</div>
+
+
+
+<!-- REGISTER FORM -->
+
+<div class="form register">
+
+<h2>Create Account</h2>
+
+<p class="error-msg" id="registerError"></p>
+
+<div class="input-group">
+<input type="text" placeholder="Full Name">
+</div>
+
+<div class="input-group">
+<input type="email" placeholder="Email Address">
+</div>
+
+<div class="input-group">
+<input type="password" id="regPass" placeholder="Password">
+<i class="fa-solid fa-eye eye"
+onclick="togglePass('regPass',this)"></i>
+</div>
+
+<div class="forgot">
+<a onclick="forgotPassword()">Forgot Password?</a>
+</div>
+
+<button onclick="registerUser()">Register Now</button>
+
+<p class="switch">
+Already have account?
+<a onclick="switchForm()">Login</a>
+</p>
+
+</div>
+
+</div>
+</div>
+
+<script>
+
+/* SWITCH LOGIN / REGISTER */
+
+function switchForm(){
+document.getElementById("authBox").classList.toggle("active");
+}
+
+
+/* PASSWORD TOGGLE */
+
+function togglePass(id,icon){
+
+let input=document.getElementById(id);
+
+if(input.type==="password"){
+input.type="text";
+icon.classList.replace("fa-eye","fa-eye-slash");
+}else{
+input.type="password";
+icon.classList.replace("fa-eye-slash","fa-eye");
+}
+
+}
+
+
+/* FORGOT PASSWORD */
+
+function forgotPassword(){
+window.location.href="404.html";
+}
+
+
+/* EMAIL VALIDATION FUNCTION */
+
+function validateEmail(email){
+
+/* Only letters numbers + one @ and . allowed */
+
+let pattern = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
+
+return pattern.test(email);
+
+}
+
+
+/* LOGIN VALIDATION */
+
+function loginUser(){
+
+let email=document.querySelector(".login input[type=email]").value.trim();
+let pass=document.getElementById("loginPass").value.trim();
+let error=document.getElementById("loginError");
+
+error.style.color="red";
+
+if(email==="" || pass===""){
+error.innerText="⚠ Please fill all login fields";
+return;
+}
+
+if(!validateEmail(email)){
+error.innerText="⚠ Invalid email format (special characters  allowed)";
+return;
+}
+
+error.style.color="green";
+error.innerText="Login Successful";
+
+setTimeout(()=>{
+window.location.href="404.html";
+},1000);
+
+}
+
+
+/* REGISTER VALIDATION */
+
+function registerUser(){
+
+let name=document.querySelector(".register input[type=text]").value.trim();
+let email=document.querySelector(".register input[type=email]").value.trim();
+let pass=document.getElementById("regPass").value.trim();
+let error=document.getElementById("registerError");
+
+error.style.color="red";
+
+if(name==="" || email==="" || pass===""){
+error.innerText="⚠ Please fill all fields";
+return;
+}
+
+if(!validateEmail(email)){
+error.innerText="⚠ Invalid email format (special characters  allowed)";
+return;
+}
+
+if(pass.length<6){
+error.innerText="⚠ Password must be at least 6 characters";
+return;
+}
+
+error.style.color="green";
+error.innerText="Account Created Successfully";
+
+setTimeout(()=>{
+window.location.href="404.html";
+},1000);
+
+}
+
+</script>
+
+</body>
+</html>
